@@ -3,11 +3,18 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const {createUser, updateUser ,googleLogin} = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState("")
     const navigate = useNavigate()
+    const [createdUserEmail, setCreatedUserEmail] = useState("")
+    const [token] = useToken(createdUserEmail)
+
+    if (token) {
+      navigate("/")
+    }
     const {
         register,
         handleSubmit,
@@ -25,11 +32,10 @@ const SignUp = () => {
                 displayName : data.name
             }
             updateUser(userInfo)
-            .then(() => {
-              
+            .then(() => {          
               saveUser(data.name,data.email);
             })
-            .then((error) => {
+            .catch((error) => {
                 console.log(error);
             })
         })
@@ -51,47 +57,12 @@ const SignUp = () => {
         .then(res => res.json())
         .then(data => {
           if(data) {
-            getUserToken(email)
+           setCreatedUserEmail(email);
           }
         })
       };
 
-      const getUserToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-        .then(res => res.json())
-        .then(data => {
-          if(data.accessToken) {
-            localStorage.setItem("accessToken", data.accessToken);
-            navigate("/")
-          }
-        })
-      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 

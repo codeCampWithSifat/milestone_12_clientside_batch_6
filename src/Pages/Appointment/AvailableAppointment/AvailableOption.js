@@ -1,7 +1,7 @@
 import React from "react";
 
 const AvailableOption = ({ option, setTreatment }) => {
-  const { name, slots } = option;
+  const { name, slots , price} = option;
   return (
     <div className="card shadow-xl mt-20 ">
       <div className="card-body">
@@ -11,6 +11,9 @@ const AvailableOption = ({ option, setTreatment }) => {
         </p>
         <p className="text-center">
           {slots.length} {slots.length > 1 ? "Spaces" : "Space"} Available
+        </p>
+        <p className="text-center">
+          Price : ${price} Per Booking
         </p>
         <div className="card-actions justify-center">
           <label

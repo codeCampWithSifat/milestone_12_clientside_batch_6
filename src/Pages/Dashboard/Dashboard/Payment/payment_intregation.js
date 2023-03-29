@@ -1,5 +1,6 @@
 /*
-
+  note : collect card information
+  
 * 1. install stripe
 * 2. card loadStripe
 * 3. Card elements

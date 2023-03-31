@@ -13,7 +13,7 @@ const CheckoutForm = ({ booking }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://milestone-12-backendside-bactch-6.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const CheckoutForm = ({ booking }) => {
         transactionId: paymentIntent.id,
         bookingId  : _id
       };
-      fetch(`http://localhost:5000/payments`, {
+      fetch(`https://milestone-12-backendside-bactch-6.vercel.app/payments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

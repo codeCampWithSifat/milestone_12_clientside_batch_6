@@ -64,7 +64,7 @@ const router = createBrowserRouter([
             {
                 path : "/dashboard/payment/:id",
                 element : <Payment/>,
-                loader : ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader : ({params}) => fetch(`https://milestone-12-backendside-bactch-6.vercel.app/bookings/${params.id}`)
             }
         ]
     }

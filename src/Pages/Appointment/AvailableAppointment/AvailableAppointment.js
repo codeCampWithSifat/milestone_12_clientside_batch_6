@@ -12,7 +12,7 @@ const AvailableAppointment = ({ selected }) => {
   const { data: appointmentOptions = [], isLoading , refetch} = useQuery({
     queryKey: ["appointmentOptions", date],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/appointmentOptions?date=${date}`);
+      const res = await fetch(`https://milestone-12-backendside-bactch-6.vercel.app/appointmentOptions?date=${date}`);
       const data = await res.json();
       return data;
     },
@@ -27,7 +27,7 @@ const AvailableAppointment = ({ selected }) => {
   }
 
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/appointmentOptions`)
+  //   fetch(`https://milestone-12-backendside-bactch-6.vercel.app/appointmentOptions`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setAppointmentOptions(data);

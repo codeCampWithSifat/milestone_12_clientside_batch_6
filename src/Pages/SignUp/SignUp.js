@@ -47,7 +47,7 @@ const SignUp = () => {
 
       const saveUser = (name,email) => {
         const user = {name,email};
-        fetch(`http://localhost:5000/users`,{
+        fetch(`https://milestone-12-backendside-bactch-6.vercel.app/users`,{
           method : "POST",
           headers : {
             "Content-Type" : "application/json"

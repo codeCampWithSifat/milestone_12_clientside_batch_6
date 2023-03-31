@@ -28,7 +28,7 @@ const BookingModal = ({ treatment, selected, setTreatment, refetch }) => {
 
     // send data to the server and one close the  modal and display the success toast
 
-    fetch(`http://localhost:5000/bookings`, {
+    fetch(`https://milestone-12-backendside-bactch-6.vercel.app/bookings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
